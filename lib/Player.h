@@ -1,15 +1,15 @@
-#ifndef PADDLE_H
-#define PADDLE_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "mbed.h"
 #include "N5110.h"
 #include "Utils.h"
 
-class Paddle
+class Player
 {
 public:
 
-    Paddle();
+    Player();
     void init(int x,int height,int width);
     void draw(N5110 &lcd);
     void update(UserInput input);

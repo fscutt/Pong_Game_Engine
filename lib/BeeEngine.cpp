@@ -1,14 +1,14 @@
-#include "PongEngine.h"
+#include "BeeEngine.h"
 
-PongEngine::PongEngine(){ _lives = 4; }    
+BeeEngine::BeeEngine(){ _lives = 4; }    
 
-void PongEngine::init(int paddle_position, int paddle_height, int paddle_width, int ball_size, int speed){
+void BeeEngine::init(int paddle_position, int paddle_height, int paddle_width, int ball_size, int speed){
     //printf("Pong Engine: Init\n");
     _ball.init(ball_size,speed);
     _paddle.init(paddle_position, paddle_height, paddle_width);
 }
 
-int PongEngine::update(UserInput input) {   
+int BeeEngine::update(UserInput input) {   
     //printf("Pong Engine: Update\n");
     check_goal();  // checking for a goal is a priority 
     _ball.update();
@@ -21,7 +21,7 @@ int PongEngine::update(UserInput input) {
     return _lives;
 }
 
-void PongEngine::draw(N5110 &lcd) {
+void BeeEngine::draw(N5110 &lcd) {
     //printf("Pong Engine: Draw\n");
     // draw the elements in the LCD buffer
     // pitch
@@ -32,7 +32,7 @@ void PongEngine::draw(N5110 &lcd) {
     _paddle.draw(lcd);
 }
 
-void PongEngine::check_wall_collision() {
+void BeeEngine::check_wall_collision() {
     //printf("Pong Engine: Check Wall Collision\n");
     // read current ball attributes
     Position2D ball_pos = _ball.get_pos();
@@ -58,7 +58,7 @@ void PongEngine::check_wall_collision() {
     _ball.set_pos(ball_pos);
 }
 
-void PongEngine::check_paddle_collision() {
+void BeeEngine::check_paddle_collision() {
     //printf("Pong Engine: Check Paddle Collision\n");
     // read current ball and paddle attributes
     Position2D ball_pos = _ball.get_pos();
@@ -82,7 +82,7 @@ void PongEngine::check_paddle_collision() {
     _ball.set_pos(ball_pos);
 }
 
-void PongEngine::check_goal() {
+void BeeEngine::check_goal() {
     //printf("Pong Engine: Check Goal\n");
     Position2D ball_pos = _ball.get_pos();
     int size = _ball.get_size();

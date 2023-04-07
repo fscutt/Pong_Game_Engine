@@ -1,15 +1,15 @@
-#ifndef PONGENGINE_H
-#define PONGENGINE_H
+#ifndef BEE_ENGINE_H
+#define BEE_ENGINE_H
 
 #include "mbed.h"
 #include "N5110.h"
 #include "Ball.h"
 #include "Utils.h"
-#include "Paddle.h"
+#include "Player.h"
 
-class PongEngine {
+class BeeEngine {
     public:
-        PongEngine();  // pass in the lcd object from the main file
+        BeeEngine();  // pass in the lcd object from the main file
         void init(int paddle_position,int paddle_height,int paddle_width,int ball_size,int speed);
         int update(UserInput input);
         void draw(N5110 &lcd);
@@ -18,7 +18,7 @@ class PongEngine {
         void check_paddle_collision();
         void check_goal();
         Ball _ball;
-        Paddle _paddle;
+        Player _paddle;
         int _lives;
 };
 
